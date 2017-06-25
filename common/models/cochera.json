@@ -26,6 +26,9 @@
     },
     "capacidad": {
       "type": "number"
+    },
+    "cupos_disp": {
+      "type": "number"
     }
   },
   "validations": [],
