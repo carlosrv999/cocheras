@@ -9,6 +9,9 @@
     "id_empresa": {
       "type": "string"
     },
+    "id_empleado": {
+      "type": "string"
+    },
     "nombre": {
       "type": "string"
     },
