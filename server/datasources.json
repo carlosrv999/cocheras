@@ -1,0 +1,12 @@
+{
+  "cocheraMongo": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "cocheras",
+    "password": "",
+    "name": "cocheraMongo",
+    "user": "",
+    "connector": "mongodb"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "empresa",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "razon_social": {
+      "type": "string"
+    },
+    "telefono": {
+      "type": "number"
+    },
+    "direccion": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "empleados": {
+      "type": "hasMany",
+      "model": "empleado",
+      "foreignKey": "id_empresa"
+    },
+    "cocheras": {
+      "type": "hasMany",
+      "model": "cochera",
+      "foreignKey": "id_empresa"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

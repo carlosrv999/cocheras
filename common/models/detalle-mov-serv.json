@@ -1,0 +1,37 @@
+{
+  "name": "detalleMovServ",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_movimiento": {
+      "type": "string"
+    },
+    "id_servicio": {
+      "type": "string"
+    },
+    "costo": {
+      "type": "number"
+    },
+    "horas": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "servicioCochera": {
+      "type": "belongsTo",
+      "model": "servicioCochera",
+      "foreignKey": "id_servicio"
+    },
+    "movimientoServicio": {
+      "type": "belongsTo",
+      "model": "movimientoServicio",
+      "foreignKey": "id_movimiento"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

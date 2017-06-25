@@ -1,0 +1,23 @@
+{
+  "name": "cliente",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "placa": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "movimientoServicios": {
+      "type": "hasMany",
+      "model": "movimientoServicio",
+      "foreignKey": "id_cliente"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

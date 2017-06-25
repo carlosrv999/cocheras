@@ -1,0 +1,47 @@
+{
+  "name": "movimientoServicio",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_cliente": {
+      "type": "string"
+    },
+    "id_cochera": {
+      "type": "string"
+    },
+    "id_empleado": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "detalleMovServs": {
+      "type": "hasMany",
+      "model": "detalleMovServ",
+      "foreignKey": "id_movimiento"
+    },
+    "cochera": {
+      "type": "belongsTo",
+      "model": "cochera",
+      "foreignKey": "id_cochera"
+    },
+    "empleado": {
+      "type": "belongsTo",
+      "model": "empleado",
+      "foreignKey": "id_empleado"
+    },
+    "cliente": {
+      "type": "belongsTo",
+      "model": "cliente",
+      "foreignKey": "id_cliente"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

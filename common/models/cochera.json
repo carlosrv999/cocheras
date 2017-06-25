@@ -1,0 +1,51 @@
+{
+  "name": "cochera",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_empresa": {
+      "type": "string"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "coordenadas": {
+      "type": "geopoint"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "telefono": {
+      "type": "number"
+    },
+    "estado": {
+      "type": "boolean"
+    },
+    "capacidad": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "empresa": {
+      "type": "belongsTo",
+      "model": "empresa",
+      "foreignKey": "id_empresa"
+    },
+    "servicioCocheras": {
+      "type": "hasMany",
+      "model": "servicioCochera",
+      "foreignKey": "id_cochera"
+    },
+    "movimientoServicios": {
+      "type": "hasMany",
+      "model": "movimientoServicio",
+      "foreignKey": "id_cochera"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

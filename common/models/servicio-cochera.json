@@ -1,0 +1,42 @@
+{
+  "name": "servicioCochera",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_cochera": {
+      "type": "string"
+    },
+    "id_servicio": {
+      "type": "string"
+    },
+    "precio_hora": {
+      "type": "number"
+    },
+    "estado": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cochera": {
+      "type": "belongsTo",
+      "model": "cochera",
+      "foreignKey": "id_cochera"
+    },
+    "tipoServicio": {
+      "type": "belongsTo",
+      "model": "tipoServicio",
+      "foreignKey": "id_servicio"
+    },
+    "detalleMovServs": {
+      "type": "hasMany",
+      "model": "detalleMovServ",
+      "foreignKey": "id_servicio"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

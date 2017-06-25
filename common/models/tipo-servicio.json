@@ -1,0 +1,23 @@
+{
+  "name": "tipoServicio",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "servicioCocheras": {
+      "type": "hasMany",
+      "model": "servicioCochera",
+      "foreignKey": "id_servicio"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

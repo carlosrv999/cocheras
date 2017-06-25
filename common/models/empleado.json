@@ -1,0 +1,60 @@
+{
+  "name": "empleado",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id_empresa": {
+      "type": "string"
+    },
+    "id_cochera": {
+      "type": "string"
+    },
+    "nombres": {
+      "type": "string"
+    },
+    "apellido_pat": {
+      "type": "string"
+    },
+    "apellido_mat": {
+      "type": "string"
+    },
+    "estado": {
+      "type": "boolean"
+    },
+    "dni": {
+      "type": "number"
+    },
+    "telefono": {
+      "type": "number"
+    },
+    "cargo": {
+      "type": "string"
+    },
+    "salario": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "empresa": {
+      "type": "belongsTo",
+      "model": "empresa",
+      "foreignKey": "id_empresa"
+    },
+    "cochera": {
+      "type": "belongsTo",
+      "model": "cochera",
+      "foreignKey": "id_cochera"
+    },
+    "movimientoServicios": {
+      "type": "hasMany",
+      "model": "movimientoServicio",
+      "foreignKey": "id_empleado"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
