@@ -41,6 +41,11 @@
       "model": "empresa",
       "foreignKey": "id_empresa"
     },
+    "empleado": {
+      "type": "hasOne",
+      "model": "empleado",
+      "foreignKey": "id_empleado"
+    },
     "servicioCocheras": {
       "type": "hasMany",
       "model": "servicioCochera",
