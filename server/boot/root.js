@@ -32,6 +32,18 @@ module.exports = function(app) {
     });
   });
 
+  router.get('getCocheraServEmp', function(req,res) {
+    var idCochera = req.query.idCochera;
+    Cochera.findById(idCochera, {
+      include: ['empleado', 'servicioCocheras']
+    }, function(err, obj) {
+      if(!err) return res.json(obj);
+      else return res.sendStatus(400);
+    });
+
+
+  })
+
 
   app.use(router);
 };
