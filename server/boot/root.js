@@ -32,7 +32,7 @@ module.exports = function(app) {
     });
   });
 
-  router.get('getCocheraServEmp', function(req,res) {
+  router.get('/getCocheraServEmp', function(req,res) {
     var idCochera = req.query.idCochera;
     Cochera.findById(idCochera, {
       include: ['empleado', 'servicioCocheras']
