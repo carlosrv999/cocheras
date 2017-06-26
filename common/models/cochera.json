@@ -42,7 +42,7 @@
       "foreignKey": "id_empresa"
     },
     "empleado": {
-      "type": "hasOne",
+      "type": "belongsTo",
       "model": "empleado",
       "foreignKey": "id_empleado"
     },
