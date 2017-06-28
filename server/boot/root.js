@@ -33,17 +33,77 @@ module.exports = function(app) {
   });
 
   router.get('/getCocheraServEmp', function(req,res) {
-    var idCochera = req.query.idCochera;
-    Cochera.findById(idCochera, {
-      include: ['empleado', 'servicioCocheras']
+    Cochera.find({
+      include: ['empleado', {
+        relation: 'servicioCocheras',
+        scope: {
+          include: 'tipoServicio'
+        }
+      }]
     }, function(err, obj) {
       if(!err) return res.json(obj);
       else return res.sendStatus(400);
     });
-
-
   })
 
+  router.get('/getEmpleadosPorCochera', function(req,res) {
+    var idCochera = req.query.idCochera;
+    Empleado.find({
+      where: {
+        "id_cochera": idCochera
+      }
+    }, function(err, obj) {
+      if(!err) return res.json(obj);
+      else return res.sendStatus(400);
+    });
+  });
+
+  router.get('/serviciosPorCochera', function(req,res) {
+    var idCochera = req.query.idCochera;
+    ServicioCochera.find({
+      where: {
+        "id_cochera": idCochera
+      },
+      include: 'tipoServicio'
+    }, function(err, obj) {
+      if(!err) return res.json(obj);
+      else return res.sendStatus(400);
+    })
+  });
+
+  router.get('/empleadosPorEmpresa', function(req,res) {
+    var idEmpresa = req.query.idEmpresa;
+    Empleado.find({
+      where: {
+        "id_empresa": idEmpresa
+      }
+    }, function(err, obj) {
+      if(!err) return res.json(obj);
+      else return res.sendStatus(400);
+    });
+  });
+
+  router.get('/obtenerEmails', function(req,res) {
+    Cochera.find({
+      fields: {
+        "id_empresa": false,
+        "id_empleado": false,
+        "nombre": false,
+        "coordenadas": false,
+        "direccion": false,
+        "telefono": false,
+        "estado": false,
+        "capacidad": false,
+        "cupos_disp": false,
+        "username": true,
+        "email": true,
+        "id": false
+      }
+    }, function(err,obj) {
+      if(!err) return res.json(obj);
+      else return res.sendStatus(400);
+    });
+  });
 
   app.use(router);
 };
