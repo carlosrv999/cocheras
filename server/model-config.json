@@ -44,5 +44,15 @@
   "cliente": {
     "dataSource": "cocheraMongo",
     "public": true
+  },
+    "AccessToken": {
+    "dataSource": "cocheraMongo",
+    "public": true,
+    "strict": true
+  },
+  "ACL": {
+    "dataSource": "cocheraMongo",
+    "public": true,
+    "strict": true
   }
 }

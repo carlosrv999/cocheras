@@ -46,6 +46,24 @@ module.exports = function(app) {
     });
   })
 
+  router.get('/getCocheraServEmpPorEmpresa', function(req,res) {
+    var idEmpresa = req.query.idEmpresa;
+    Cochera.find({
+      where: {
+        "id_empresa" : idEmpresa
+      },
+      include: ['empleado', {
+        relation: 'servicioCocheras',
+        scope: {
+          include: 'tipoServicio'
+        }
+      }]
+    }, function(err, obj) {
+      if(!err) return res.json(obj);
+      else return res.sendStatus(400);
+    });
+  })
+
   router.get('/getEmpleadosPorCochera', function(req,res) {
     var idCochera = req.query.idCochera;
     Empleado.find({
@@ -102,6 +120,36 @@ module.exports = function(app) {
     }, function(err,obj) {
       if(!err) return res.json(obj);
       else return res.sendStatus(400);
+    });
+  });
+
+  router.get('/obtenerEmailsEmpresa', function(req,res) {
+    Empresa.find({
+      fields: {
+        "razon_social": false,
+        "direccion": false,
+        "telefono": false,
+        "username": true,
+        "email": true,
+        "id": false
+      }
+    }, function(err,obj) {
+      if(!err) return res.json(obj);
+      else return res.sendStatus(400);
+    });
+  });
+
+  router.post('/empresaLogout', function(req,res) {
+    Empresa.logout(req.query.accessToken, function(err) {
+      if(!err) res.send({"logout":true});
+      else res.send({"logout": false});
+    });
+  });
+
+  router.post('/cocheraLogout', function(req,res) {
+    Cochera.logout(req.query.accessToken, function(err) {
+      if(!err) res.send({"logout":true});
+      else res.send({"logout": false});
     });
   });
 

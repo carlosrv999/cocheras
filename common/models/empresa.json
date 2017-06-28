@@ -27,6 +27,11 @@
       "type": "hasMany",
       "model": "cochera",
       "foreignKey": "id_empresa"
+    },
+    "tokens": {
+      "type": "hasMany",
+      "model": "AccessToken",
+      "foreignKey": "userId"
     }
   },
   "acls": [],
