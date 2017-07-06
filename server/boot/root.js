@@ -1,4 +1,5 @@
 'use strict';
+var bodyParser = require('body-parser');
 
 module.exports = function(app) {
   var router = app.loopback.Router();
@@ -154,4 +155,5 @@ module.exports = function(app) {
   });
 
   app.use(router);
+  app.use(bodyParser.json());
 };
