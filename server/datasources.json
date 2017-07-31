@@ -1,6 +1,6 @@
 {
   "cocheraMongo": {
-    "host": "ec2-54-175-211-134.compute-1.amazonaws.com",
+    "host": "ec2-34-226-208-192.compute-1.amazonaws.com",
     "port": 27017,
     "url": "",
     "database": "cocheras",
