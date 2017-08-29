@@ -1,12 +1,10 @@
 {
   "cocheraMongo": {
-    "host": "ec2-34-226-208-192.compute-1.amazonaws.com",
+    "host": "mongodb",
     "port": 27017,
     "url": "",
     "database": "cocheras",
-    "password": "carlos",
     "name": "cocheraMongo",
-    "user": "carlos",
     "connector": "mongodb"
   }
 }
